@@ -50,6 +50,12 @@ driver.findElement(By.id("name")).sendKeys("TATOC");
 driver.findElement(By.id("submit")).click();
 driver.switchTo().window(MainWindow);
 driver.findElement(By.linkText("Proceed")).click();
+	
+	driver.findElement(By.linkText("Generate Token")).click();
+		String Cookie_val = driver.findElement(By.id("token")).getText();
+		Cookie ck = new Cookie("Token", Cookie_val.substring(7));
+		driver.manage().addCookie(ck);
+		driver.findElement(By.linkText("Proceed")).click();
 
 
 }
